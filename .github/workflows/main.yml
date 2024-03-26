@@ -18,8 +18,8 @@ jobs:
         run: python feed.py
       - name: Push Repo
         run: |
-          git config user.name mrdiin-bot
-          git config user.name bot@mrdiin.co.bw
+          git config --global user.name "mrdiin-bot"
+          git config --global user.name "bot@mrdiin.co.bw"
           git add .
-          git commit -m "Chore: automaticaly updated feed"
+          git commit -m "bot-chore: automatically updated feed"
           git push
