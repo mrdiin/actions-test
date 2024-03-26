@@ -1,0 +1,55 @@
+entry: gh-start
+executions:
+  - src:
+      node: gh-checkout
+      port: exec
+    dst:
+      node: gh-mrdiin-generator-test-v1-0-1-cranberry-snake-cranberry
+      port: exec
+  - src:
+      node: gh-start
+      port: exec-on-push
+    dst:
+      node: switch-platform-v1-pear-lion-orange
+      port: exec
+  - src:
+      node: switch-platform-v1-pear-lion-orange
+      port: exec-linux
+    dst:
+      node: gh-checkout
+      port: exec
+connections: []
+nodes:
+  - id: gh-start
+    type: gh-start@v1
+    position:
+      x: 10
+      y: 10
+    settings:
+      folded: false
+  - id: gh-checkout
+    type: github.com/actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+    position:
+      x: 590
+      y: 90
+    settings:
+      folded: false
+  - id: gh-mrdiin-generator-test-v1-0-1-cranberry-snake-cranberry
+    type: github.com/mrdiin/generator-test@5c2e81bc95f529b024836d03949c9538e8be3ee1
+    position:
+      x: 1090
+      y: 180
+    inputs:
+      env: []
+    settings:
+      folded: false
+  - id: switch-platform-v1-pear-lion-orange
+    type: switch-platform@v1
+    position:
+      x: 370
+      y: 190
+    settings:
+      folded: false
+registries:
+  - github.com/mrdiin/generator-test@v1.0.1
+description: ''
